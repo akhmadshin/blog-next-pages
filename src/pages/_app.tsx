@@ -9,7 +9,7 @@ import { useSSRIntercept } from '@/hooks/useSSRIntercept';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import WithQueryClientProvider from '@/components/WithQueryClientProvider';
-import { Page } from '@/components/pages/Page';
+import { Page } from '@/components/Page';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	const router = useRouter();

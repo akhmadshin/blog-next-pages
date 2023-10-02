@@ -8,9 +8,6 @@ import { SkeletonArticleCard } from '@/components/ArticleCard/SkeletonArticleCar
 export const ArticleCard: React.FC<any> = (props) => {
 	const imageRef = useRef<HTMLImageElement>(null);
 
-	const handleClick = () => {
-	}
-
 	if (!props.article) {
 		return <SkeletonArticleCard />
 	}
@@ -52,7 +49,6 @@ export const ArticleCard: React.FC<any> = (props) => {
 						beforeTransition={handleBeforeTransition}
 						afterTransition={handleAfterTransition}
 						href={`/blog/${articleAttributes.slug}/`}
-						onClick={handleClick}
 						data={props.article}
 						className={'pointer-events-auto card-link'}
 					>

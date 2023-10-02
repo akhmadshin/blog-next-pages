@@ -73,23 +73,18 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkPropsModified>(funct
 		if (isSameUrl) {
 			return;
 		}
-		if (!window.pageMounted) {
-			window.pageMountedPromise = new Promise(resolve => {
-				window.pageMounted = resolve as any;
-			})
-		}
+		const pageMountedPromise = new Promise(resolve => {
+			window.pageMounted = resolve as any;
+		});
 
-		transitionHelper({
-			updateDOM: async () => {
-				if (window.pageMounted) {
-					if (afterTransition) {
-						afterTransition();
-					}
-					await window.pageMountedPromise;
-				}
-			},
+		transitionHelper(async () => {
+			if (afterTransition) {
+				afterTransition();
+			}
+			await pageMountedPromise;
 		});
 	}
+
 	return (
 		<NextLink
 			onClick={handleClick}

@@ -1,11 +1,6 @@
-export function transitionHelper({
-  skipTransition = false,
-  classNames = [],
-  updateDOM,
-	onFinish,
-}: any) {
+export function transitionHelper(updateDOM: () => Promise<void>) {
 	// @ts-ignore
-	if (skipTransition || !document.startViewTransition) {
+	if (!document.startViewTransition) {
 		const updateCallbackDone = Promise.resolve(updateDOM()).then(() => {});
 
 		return {
@@ -16,15 +11,6 @@ export function transitionHelper({
 		};
 	}
 
-	document.documentElement.classList.add(...classNames);
-
 	// @ts-ignore
-	const transition = document.startViewTransition(updateDOM);
-	transition.finished.finally(() => {
-		if (onFinish) {
-			onFinish();
-		}
-	}
-	);
-	return transition;
+	return document.startViewTransition(updateDOM);
 }
