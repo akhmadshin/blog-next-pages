@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
 interface PlaceholderState {
-	placeholder?: any;
-	setPlaceholder: (placeholder: any) => void;
+  placeholder?: any;
+  setPlaceholder: (placeholder: any) => void;
 }
 
 export const usePlaceholderStore = create<PlaceholderState>((set) => ({
-	placeholder: {},
-	setPlaceholder: (placeholder) => set(() => ({ placeholder })),
+  placeholder: {},
+  setPlaceholder: (placeholder) => set(() => ({placeholder})),
 }));

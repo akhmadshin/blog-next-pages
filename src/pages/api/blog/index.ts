@@ -4,10 +4,10 @@ import { timeout } from '@/lib/utils';
 import { articles } from '@/lib/data';
 
 export default async function handler(
-	req: NextApiRequest,
-	res: NextApiResponse<any[]>
+  req: NextApiRequest,
+  res: NextApiResponse<any[]>
 ) {
-	await timeout(2000);
-	const shortData =  articles.map(({content, ...data}) => data);
-	res.status(200).json(shortData)
+  await timeout(2000);
+  const shortData = articles.map(({content, ...data}) => data);
+  res.status(200).json(shortData)
 }

@@ -22,8 +22,7 @@ body {
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-  )
-  rgb(var(--background-start-rgb));
+  ) rgb(var(--background-start-rgb));
 }
 
 
@@ -64,19 +63,27 @@ body {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
+  from {
+    opacity: 0;
+  }
 }
 
 @keyframes fade-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes slide-from-right {
-  from { transform: translateX(30px); }
+  from {
+    transform: translateX(30px);
+  }
 }
 
 @keyframes slide-to-left {
-  to { transform: translateX(-30px); }
+  to {
+    transform: translateX(-30px);
+  }
 }
 
 ::view-transition-old(main-container) {

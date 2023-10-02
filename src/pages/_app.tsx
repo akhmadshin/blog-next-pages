@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 
 import {
-	Hydrate,
+  Hydrate,
 } from '@tanstack/react-query'
 import React, { useEffect } from 'react';
 import { Header } from '@/components/Header';
@@ -11,27 +11,27 @@ import { useRouter } from 'next/router';
 import WithQueryClientProvider from '@/components/WithQueryClientProvider';
 import { Page } from '@/components/Page';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-	const router = useRouter();
+export default function MyApp({Component, pageProps}: AppProps) {
+  const router = useRouter();
 
-	useEffect(() => {
-		router.prefetch('/');
-		router.prefetch('/blog/[slug]');
-	}, [])
+  useEffect(() => {
+    router.prefetch('/');
+    router.prefetch('/blog/[slug]');
+  }, [])
 
-	useSSRIntercept();
+  useSSRIntercept();
 
-	return (
-		<WithQueryClientProvider>
-			<Header />
-			<main>
-				<Hydrate state={pageProps.dehydratedState}>
-					<Page>
-						<Component {...pageProps} />
-					</Page>
-				</Hydrate>
-			</main>
-			<div className="mt-16 sm:mt-32"></div>
-		</WithQueryClientProvider>
-	)
+  return (
+    <WithQueryClientProvider>
+      <Header/>
+      <main>
+        <Hydrate state={pageProps.dehydratedState}>
+          <Page>
+            <Component {...pageProps} />
+          </Page>
+        </Hydrate>
+      </main>
+      <div className="mt-16 sm:mt-32"></div>
+    </WithQueryClientProvider>
+  )
 }

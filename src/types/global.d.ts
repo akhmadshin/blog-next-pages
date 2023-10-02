@@ -1,4 +1,4 @@
 interface Window {
-	pageMounted?: () => void;
-	pageMountedPromise?: Promise<void>;
+  pageMounted?: () => void;
+  pageMountedPromise?: Promise<void>;
 }
